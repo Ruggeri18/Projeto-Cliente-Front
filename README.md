@@ -64,3 +64,11 @@ cd backend
 npm install
 npm run backend
 ```
+
+3) Rodar o Frontend
+Em outro terminal:
+```
+cd frontend
+npm install
+npm run dev
+```
