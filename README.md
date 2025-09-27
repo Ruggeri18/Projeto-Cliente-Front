@@ -37,7 +37,7 @@ projetoCliente/
 ```
 
 
-#Pré-requisitos
+# Pré-requisitos
 
 Node.js ≥ 18
 
@@ -52,20 +52,20 @@ npm
 
 Como Rodar o Projeto
 
-#1) Clonar o repositório
+# 1) Clonar o repositório
 ```
 git clone <URL_DO_REPOSITORIO>
 cd projetoCliente
 ```
 
-#2) Rodar o Backend
+# 2) Rodar o Backend
 ```   
 cd backend
 npm install
 npm run backend
 ```
 
-3) Rodar o Frontend
+# 3) Rodar o Frontend
 Em outro terminal:
 ```
 cd frontend
