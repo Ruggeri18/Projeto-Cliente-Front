@@ -1,0 +1,73 @@
+// IMPORTA OS MÓDULOS QUE SERÃO UTILIZADOS NA APLICAÇÃO
+const express = require("express");
+// PERMITE ACESSO AS APLICAÇÕES DE DIFERENTES DOMÍNIOS
+const cors =require("cors");
+//IMPORTA O MODULO "FS" PARA INTERAGIR COM ARQUIVOS
+const fs=require("fs").promises;
+//MODULO QUE VAI TRABALHAR O CAMINHO DOS ARQUIVOS
+const path =require("path")
+
+//DEFINE A PORTA QUE O SERVIDOR IRÁ RODAR
+const Port = 5001;
+// INSTANCIANDO O EXPRESS
+const app = express();
+// MIDDLEAWARE QUE ANALISA OS DADOS DA REQUISIÇÃO NO CORPO DA PÁGINA NO FORMATO JSON
+app.use(express.json());
+// USANDO O CORS PARA HABILITAR AS REQUISIÇÕES
+app.use(cors());
+
+// CRIANDO O CAMINHO PARA LER O ARQUIVO DADOS.JSON
+const caminho = path.join(__dirname,"data/dados.json");
+
+// CRIANDO A ROTA (post)
+app.post("/clientes", async(req,res)=>{
+    // DESTRUCT PARA ACESSAR O CORPO DA REQUISIÇÃO ATRAVES DO ARQUIVO JSON
+    const dadosCliente =req.body;
+    console.log(`Dados do Cliente,${dadosCliente}`);
+
+    // TRATAMENTO DE ERROS
+
+    try{
+    
+        //LÊ O CONTEUDO DO ARQUIVO JSON
+        const data = await fs.readFile(caminho,"utf-8");
+        // CONVERTE O CONTEUDO DO ARQUIVO JSON PARA UM OBJETO 
+        const clientes = JSON.parse(data);
+
+        // ADICIONA E LISTA OS NOVOS CLIENTE NO ARRAY
+        clientes.push(dadosCliente)
+
+        // CONVERTE O ARRAY ATUALIZADO E RETORNO PARA UMA STRING JSON
+        const updateData = JSON.stringify(clientes , null , 2);
+        // SALVA OS DADOS NO ARQUIVO DADOS.JSON
+        await fs.writeFile(caminho,updateData,"utf-8")
+
+        // RETORNA A MENSAGEM
+        res.status(201).json({mensagem:"Dados recebidos com sucesso"})
+
+    }catch(error){
+        console.log("Erro ao manipular o arquivo",error);
+        res.status(500).json({mensagem: "Erro ao salvar os dados "})
+    }
+
+})
+
+// ROTA PARA OBTER TODOS OS CLIENTES
+
+app.get("/clientes", async(req,res)=>{
+    try{
+        const data = await fs.readFile(caminho,"utf-8")
+        const clientes = JSON.parse(data);
+        res.status(200).json(clientes);
+    }
+    catch(error){
+        res.status(500).json({message:"Erro ao buscar dados"})
+      }
+})
+
+// ESCUTANDO O SERVIDOR NA PORTA 
+app.listen(Port,()=>{
+    console.log(`Servidor rodando na porta http://localhost:${Port}`)
+})
+
+
