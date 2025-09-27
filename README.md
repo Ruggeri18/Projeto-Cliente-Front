@@ -37,7 +37,7 @@ projetoCliente/
 ```
 
 
-⚙️ Pré-requisitos
+#Pré-requisitos
 
 Node.js ≥ 18
 
@@ -50,5 +50,16 @@ node -v
 npm
 ```
 
+Como Rodar o Projeto
+#1) Clonar o repositório
+```
+git clone <URL_DO_REPOSITORIO>
+cd projetoCliente
+```
 
-Verifique:
+#2) Rodar o Backend
+```   
+cd backend
+npm install
+npm run backend
+```
