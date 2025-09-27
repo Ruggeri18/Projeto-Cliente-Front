@@ -43,24 +43,34 @@ Node.js ≥ 18
 NPM instalado
 
 Verifique:
-
+```
 bash
 Copiar código
 node -v
 npm -v
+```
+
+
 ▶️ Como Rodar o Projeto
+
 1) Clonar o Repositório
+2) ```
 bash
 Copiar código
 git clone <URL_DO_REPOSITORIO>
 cd projetoCliente
-2) Rodar o Backend
+```
+
+
+3) Rodar o Backend
+```
 bash
 Copiar código
 cd backend
 npm install
 npm run backend
-Servidor disponível em: http://localhost:5001
+```
+
 
 Rotas disponíveis:
 
@@ -69,22 +79,25 @@ GET /clientes → lista clientes do dados.json
 POST /clientes → adiciona novo cliente
 
 Exemplo de requisição:
-
+```
 json
 Copiar código
 {
   "nome": "Maria",
   "email": "maria@example.com"
 }
+```
+
+
 3) Rodar o Frontend
 Em outro terminal:
-
+```
 bash
 Copiar código
 cd frontend
 npm install
 npm run dev
-App disponível em: http://localhost:5173
+```
 Use http://localhost:5001 como base da API.
 
 📦 Estrutura de Dados
@@ -96,6 +109,8 @@ Copiar código
   { "nome": "fiap", "email": "fiap.com.br" }
 ]
 As requisições POST adicionam novos objetos a este array.
+
+
 
 📌 Status do Desenvolvimento
 ✅ Backend configurado (Express + CORS)
