@@ -45,7 +45,8 @@ NPM instalado
 
 Verifique:
 
-```node -v
+```
+node -v
 npm
 ```
 
