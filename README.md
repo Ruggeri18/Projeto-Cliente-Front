@@ -51,6 +51,7 @@ npm
 ```
 
 Como Rodar o Projeto
+
 #1) Clonar o repositório
 ```
 git clone <URL_DO_REPOSITORIO>
