@@ -34,6 +34,9 @@ projetoCliente/
    ├─ index.html
    ├─ package.json
    └─ vite.config.js
+```
+
+
 ⚙️ Pré-requisitos
 Node.js ≥ 18
 
