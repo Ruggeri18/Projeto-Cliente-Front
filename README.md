@@ -46,7 +46,8 @@ NPM instalado
 Verifique:
 
 ```node -v
-npm -v```
+npm
+```
 
 
 Verifique:
